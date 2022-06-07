@@ -19,8 +19,6 @@ export default function Home() {
           Get started by editing <code>pages/index.js</code>
         </p>
 
-        <p>Message from Netlify: {hello}</p>
-        <p>Message from Netlify but in Go: {goHello}</p>
       </main>
 
       <Footer />
