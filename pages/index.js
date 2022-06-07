@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import { useState } from 'react'
 
 export default function Home() {
-  const [hello, setHello] = useState("");
-  const [goHello, setGoHello] = useState("");
 
-  fetch('.netlify/functions/hello').then(data => data.json()).then(data => setHello(data.message))
+  fetch('.netlify/functions/hello').then(data => data.json()).then(data => console.log(data.message))
   // fetch('.netlify/functions/helloworld').then(data => setGoHello(data.body))
   return (
     <div className="container">
