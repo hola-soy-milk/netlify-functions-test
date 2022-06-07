@@ -1,18 +1,29 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
   const [hello, setHello] = useState("");
   const [goHello, setGoHello] = useState("");
 
-  fetch('.netlify/functions/hello').then(data => data.json()).then(data => {
-    setHello(data.message)
-  })
-  fetch('.netlify/functions/helloworld').then(data => {
-    setGoHello(data.body)
-  })
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('.netlify/functions/hello');
+        const json = await response.json();
+        setHello(json.message)
+        const goresponse = await fetch('.netlify/functions/helloworld');
+        setGoHello(goresponse.body)
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+}, []);
+
   return (
     <div className="container">
       <Head>
