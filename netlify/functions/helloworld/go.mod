@@ -1,4 +1,4 @@
-module helloworld
+module main
 
 go 1.17
 

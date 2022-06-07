@@ -15,7 +15,8 @@ export default function Home() {
         const json = await response.json();
         setHello(json.message)
         const goresponse = await fetch('.netlify/functions/helloworld');
-        setGoHello(goresponse.body)
+        const text = await goresponse.text();
+        setGoHello(text)
       } catch (error) {
         console.log("error", error);
       }
