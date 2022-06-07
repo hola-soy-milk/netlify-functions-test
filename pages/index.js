@@ -8,7 +8,7 @@ export default function Home() {
   const [goHello, setGoHello] = useState("");
 
   fetch('.netlify/functions/hello').then(data => data.json()).then(data => setHello(data.message))
-  fetch('.netlify/functions/helloworld').then(data => setGoHello(data.body))
+  // fetch('.netlify/functions/helloworld').then(data => setGoHello(data.body))
   return (
     <div className="container">
       <Head>
