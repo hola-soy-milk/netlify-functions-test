@@ -1,4 +1,4 @@
-package main
+package helloworld
 
 import (
   "github.com/aws/aws-lambda-go/events"
