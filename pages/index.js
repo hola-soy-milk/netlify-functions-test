@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import { useState } from 'react/cjs/react.development'
+import { useState } from 'react'
 
 export default function Home() {
   const [hello, setHello] = useState("");
