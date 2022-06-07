@@ -5,8 +5,10 @@ import { useState } from 'react/cjs/react.development'
 
 export default function Home() {
   const [hello, setHello] = useState("");
+  const [goHello, setGoHello] = useState("");
 
-  fetch('./.netlify/functions/hello').then(data => data.json()).then(data => setHello(data.message))
+  fetch('.netlify/functions/hello').then(data => data.json()).then(data => setHello(data.message))
+  fetch('.netlify/functions/helloworld').then(data => setGoHello(data.body))
   return (
     <div className="container">
       <Head>
@@ -21,6 +23,7 @@ export default function Home() {
         </p>
 
         <p>Message from Netlify: {hello}</p>
+        <p>Message from Netlify but in Go: {goHello}</p>
       </main>
 
       <Footer />
