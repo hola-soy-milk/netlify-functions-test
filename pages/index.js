@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import { useState } from 'react'
 
 export default function Home() {
+  const [hello, setHello] = useState("");
+  const [goHello, setGoHello] = useState("");
 
+  fetch('.netlify/functions/hello').then(data => data.json()).then(data => setHello(data.message))
   return (
     <div className="container">
       <Head>
@@ -18,6 +22,7 @@ export default function Home() {
         </p>
 
         <p>Message from Netlify: {hello}</p>
+        <p>Message from Netlify but in Go: {goHello}</p>
       </main>
 
       <Footer />
