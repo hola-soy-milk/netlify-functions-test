@@ -7,6 +7,7 @@ export default function Home() {
   const [hello, setHello] = useState("");
   const [goHello, setGoHello] = useState("");
   const [edgeHello, setEdgeHello] = useState("");
+  const [tsedgeHello, settsEdgeHello] = useState("");
 
   useEffect(() => {
 
@@ -21,6 +22,9 @@ export default function Home() {
         const edgeresponse = await fetch('edgy');
         const edgetext = await edgeresponse.text();
         setEdgeHello(edgetext)
+        const tsedgeresponse = await fetch('typedEdgy');
+        const tsedgetext = await tsedgeresponse.text();
+        settsEdgeHello(tsedgetext)
       } catch (error) {
         console.log("error", error);
       }
@@ -45,6 +49,7 @@ export default function Home() {
         <p>Message from Netlify JS: {hello}</p>
         <p>Message from Netlify but in Go: {goHello}</p>
         <p>Message from Netlify Edge: {edgeHello}</p>
+        <p>Message from Netlify TS Edge: {tsedgeHello}</p>
       </main>
 
       <Footer />

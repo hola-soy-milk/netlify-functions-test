@@ -8,3 +8,7 @@
 [[edge_functions]]
 path = "/edgy"
 function = "edgy"
+
+[[edge_functions]]
+path = "/typedEdgy"
+function = "typedEdgy"
