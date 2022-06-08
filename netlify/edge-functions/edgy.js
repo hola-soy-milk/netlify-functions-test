@@ -1,0 +1,1 @@
+export default () => new Response("Hello from living on the edge");

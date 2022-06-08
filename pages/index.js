@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [hello, setHello] = useState("");
   const [goHello, setGoHello] = useState("");
+  const [edgeHello, setEdgeHello] = useState("");
 
   useEffect(() => {
 
@@ -17,6 +18,9 @@ export default function Home() {
         const goresponse = await fetch('.netlify/functions/helloworld');
         const text = await goresponse.text();
         setGoHello(text)
+        const edgeresponse = await fetch('edgy');
+        const edgetext = await edgeresponse.text();
+        setEdgeHello(edgetext)
       } catch (error) {
         console.log("error", error);
       }
@@ -38,8 +42,9 @@ export default function Home() {
           Get started by editing <code>pages/index.js</code>
         </p>
 
-        <p>Message from Netlify: {hello}</p>
+        <p>Message from Netlify JS: {hello}</p>
         <p>Message from Netlify but in Go: {goHello}</p>
+        <p>Message from Netlify Edge: {edgeHello}</p>
       </main>
 
       <Footer />
